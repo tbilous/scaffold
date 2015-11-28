@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800&subset=latin,cyrillic');
+/* Webfont: Lato-Bold */
+//noinspection ALL
+
+@font-face {
+    font-family: 'Ionicons';
+    src: url("../fonts/ionicons.eot?v=2.0.0");
+    src: url("../fonts/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"),
+    url("../fonts/ionicons.ttf?v=2.0.0") format("truetype"),
+    url("../fonts/ionicons.woff?v=2.0.0") format("woff"),
+    url("../fonts/ionicons.svg?v=2.0.0#Ionicons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoWebBold';
+    src: url('../fonts/Lato-Bold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/Lato-Bold.woff2') format('woff2'), /* Modern Browsers */
+    url('../fonts/Lato-Bold.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/Lato-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+//FONT AWESOME
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.eot?v=4.5.0');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Webfont: Lato-Semibold */
+//noinspection ALL
+/*
+@font-face {
+  font-family: 'LatoWebSemibold';
+  src: url('../fonts/Lato-Semibold.eot'); !* IE9 Compat Modes *!
+  src: url('../fonts/Lato-Semibold.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *! url('../fonts/Lato-Semibold.woff2') format('woff2'), !* Modern Browsers *! url('../fonts/Lato-Semibold.woff') format('woff'), !* Modern Browsers *! url('../fonts/Lato-Semibold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+*/
+
+//noinspection ALL
+/* Webfont: Lato-Regular */
+//noinspection ALL
+@font-face {
+    font-family: 'LatoWeb';
+    src: url('../fonts/Lato-Regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+    url('../fonts/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/Lato-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/*
+@font-face {
+  font-family: 'MerriweatherItalic';
+  src: url('../fonts/MerriweatherItalic.eot');
+  src: url('../fonts/MerriweatherItalic.eot') format('embedded-opentype'),
+  url('../fonts/MerriweatherItalic.woff2') format('woff2'),
+  url('../fonts/MerriweatherItalic.woff') format('woff'),
+  url('../fonts/MerriweatherItalic.ttf') format('truetype'),
+  url('../fonts/MerriweatherItalic.svg#MerriweatherItalic') format('svg');
+}
+*/
+
+//GLOBAL COLORS
+
+body {
+    position: relative;
+    @media all and (max-width: $screen-tablet) {
+        font-size: 12px;
+    }
+    @media all and (max-width: $screen-phone) {
+        font-size: 10px;
+        h1 {
+            font-size: floor(($font-size-base * 1.8));
+        }
+        h2 {
+            font-size: floor(($font-size-base * 1.6));
+        }
+        h3 {
+            font-size: ceil(($font-size-base * 1.1));
+        }
+        h4 {
+            font-size: $font-size-base;
+        }
+        h5 {
+            font-size: ceil(($font-size-base * .9));
+        }
+    }
+}
+
+.relative {
+    position: relative;
+}
+.semi-bold{
+    font-weight: 600;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.extra-bold {
+    font-weight: 800;
+}
+
+.color-white {
+    color: #ffffff;
+}
+
+.color-primary {
+    color: $brand-primary;
+}
+
+.light {
+    font-weight: 300;
+}
+
+.btn-lg {
+    font-size: 1em;
+    height: 3.5em;
+}
+
+
+a, button, input, textarea {
+    &:focus,
+    &:active {
+        outline: none !important;
+    }
+}
+
+.section-header {
+    text-align: center;
+    max-width: 790px;
+    margin: 0 auto;
+    h2 {
+        font-weight: 500;
+    }
+    .section-subheader {
+        font-size: 1.2em;
+        color: #898989;
+        line-height: 1.5;
+    }
+}
+.no-padding {
+    padding: 0;
+}
+
+.block-centered {
+    display: block;
+    margin: 0 auto;
+}
+
+.spacer {
+    font-size: 1px;
+    &.quad {
+        padding-top: 100%;
+    }
+}
+
+//FORMS
+.form-feedback {
+    background-color: white;
+    padding: 2em 2em .5em;
+    &.production-modal-form {
+        @media (min-width: $screen-lg-min) {
+            padding-left: 0;
+        }
+    }
+    &.staff-form {
+        background-color: transparent;
+        padding: 0;
+    }
+    input[type="text"], button[type="submit"] {
+        height: 3em;
+    }
+    input[type="text"], button[type="submit"], textarea {
+        font-size: 1.1em;;
+        border: 1px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        margin-bottom: 1em;
+    }
+    input[type="text"], textarea {
+        width: 100%;
+        border: 1px solid lightgray;
+        &:active,
+        &:focus {
+            border-color: $brand-primary;
+        }
+    }
+    button[type="submit"] {
+        float: right;
+    }
+    textarea {
+        resize: none;
+        padding: 10px 16px;
+    }
+    .header-form {
+        margin: 0 0 1em;
+    }
+}
+
+.i-icons {
+    position: relative;
+    &::before {
+        font-family: 'Ionicons';
+        position: absolute;
+        height: 40px;
+        width: 20px;
+        top: 3px;
+        font-size: 22px;
+        display: block;
+ /*       padding-top: 7px;
+        left: 7px;*/
+        color: $brand-primary;
+        left: -24px;
+        padding-top: 4px;
+    }
+    &.airplane::before {
+        content: '\f2c3';
+
+    }
+    &.person::before {
+        content: '\f213';
+
+    }
+    &.telephone::before {
+        content: '\f4b9';
+
+    }
+    &.text::before {
+        content: '\f11d';
+
+    }
+    &.mail::before {
+        content: '\f2eb';
+
+    }
+}
+.i-social{
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &.fb{
+        background-image: url("../img/icons/s-fb-icon.png");
+    }
+    &.tw{
+        background-image: url("../img/icons/s-tw-icon.png");
+    }
+    &.g{
+        background-image: url("../img/icons/s-g-icon.png");
+    }
+}
+
+.line-icon {
+    display: block;
+    height: 10px;
+    background: url("../img/icons/icon-line.png") center no-repeat;
+    margin-bottom: 1em;
+}
+
+.animated {
+    opacity: 0;
+    &.visible {
+        opacity: 1;
+    }
+}
+
+//FA ICONS
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 'FontAwesome';
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-icon {
+    //display: inline-block;
+    //font: normal normal normal 14px/1 'FontAwesome';
+    font-size: inherit; // can't have font-size inherit on line above, so need to override
+    text-rendering: auto; // optimizelegibility throws things off #1094
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+.use-icon:before {
+    left: 0;
+    position: absolute;
+    color: $brand-primary;
+    font: normal normal normal 1.2em/1 'FontAwesome';
+}
+
+.fa-chevron-down:before {
+    content: "\f107";
+}
+.fa-chevron-up:before {
+    content: "\f077";
+}
+.fa-angle-up:before {
+    content: "\f106";
+}
+
+.fa-street-view:before {
+    content: "\f21d";
+}
+
+.fa-user-md:before {
+    content: "\f0f0";
+}
+
+.fa-car:before {
+    content: "\f1b9";
+}
+
+.fa-motorcycle:before {
+    content: "\f21c";
+}
+
+.fa-bicycle:before {
+    content: "\f206";
+}
+
+.fa-anchor:before {
+    content: "\f13d";
+}
+
+.fa-paw:before {
+    content: "\f1b0";
+}
+
+.fa-building-o:before {
+    content: "\f0f7";
+}
+
+.fa-subway:before {
+    content: "\f239";
+}
+
+.fa-safari:before {
+    content: "\f267";
+}
+
+.fa-binoculars:before {
+    content: "\f1e5";
+}
+
+.fa-file-text-o:before {
+    content: "\f0f6";
+}

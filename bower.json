@@ -1,0 +1,30 @@
+{
+    "name": "Landing page layout",
+    "description": "",
+    "main": "gulpfile.js",
+    "authors": [
+        "Taras Bilous <tbilous@gmail.com>"
+    ],
+    "license": "MTI",
+    "moduleType": [],
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap-sass": "~3.3.5",
+        "moment": "~2.10.6",
+        "flipclock": "https://github.com/tbilous/FlipClock.git",
+        "font-awesome": "",
+        "font-awesome-animation": "~0.0.7",
+        "Ionicons": "ionicons#~2.0.1",
+        "scrollMonitor": "~1.0.12",
+        "animate.css": "~3.4.0",
+        "lightbox2": "~2.8.1",
+        "parallax.js": "~1.3.2"
+    }
+}

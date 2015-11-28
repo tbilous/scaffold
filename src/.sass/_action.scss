@@ -1,0 +1,111 @@
+//BLOCK-4 Action
+.section-action{
+    background: #e4ebe8 url("../img/action-bg.jpg") -6% bottom no-repeat;
+    padding: 3em 0;
+    @media all and (max-width: $screen-xs-min) {
+        background: #e4ebe8;
+        padding-top: 2em;
+    }
+    .section-header-block{
+        padding: 2em 0 ;
+        max-width: 540px;
+        position: relative;
+        margin: 12% -15px 0 auto;
+        right: 0;
+        .section-header{
+            font-size: 3.8em;
+        }
+        @media all and (max-width: $screen-sm-min) {
+            margin: 1em auto 0;
+            .section-header{
+                font-size: 3em;
+            }
+        }
+    }
+}
+.body-form{
+    font-size: 14px;
+    text-align: center;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: $border-radius-large;
+    background: url("../img/form-bg.jpg");
+    padding: .4em;
+    .form-wrapper{
+        border: 1px dotted $form-border-color;
+        border-radius: $border-radius-base;
+        padding-top: 1em;
+    }
+    @media all and (max-width: $screen-sm-min) {
+        border-radius: $border-radius-small;
+        .form-wrapper{
+            border-radius: $border-radius-small
+        }
+    }
+    .form-header{
+        margin-bottom: 1.4em;
+    }
+    .heading{
+        font-size: 1.9em;
+        margin-bottom: 0;
+    }
+    .sub-heading{
+        font-size: 1em;
+        margin: .4em 0;
+    }
+    .input-group{
+        width: 75%;
+        margin: .8em auto;
+    }
+    input[type='text']{
+        height: 40px;
+        background: transparent;
+        border-radius: .5em;
+        border: 1px solid $form-input-color;
+        width: 100%;
+        padding: 0 1em;
+        color: $input-text-color;
+        box-shadow: 0 1px 2px 0 rgba(255,255,255,.3);
+        &::-webkit-input-placeholder{
+            color: $input-text-color;
+        }
+        background: url("../img/input-bg.png");
+    }
+    input[type='submit']{
+        height: 40px;
+        width: 100%;
+        //background: url("../img/form-btn-bg.png") center no-repeat;
+        background-size: contain;
+        //border: none;
+        border-radius: 6px;
+        box-shadow: 0 0 4px 1px $gray-light;
+        //background-color: $brand-danger;
+        // Needs latest Compass, add '@import "compass"' to your scss
+        // Permalink - use to edit and share this gradient:
+        // http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+0,0.65+100
+        @include filter-gradient(#000000, #000000, vertical); // IE6-9
+        @include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%));
+        &:hover{
+            // Needs latest Compass, add '@import "compass"' to your scss
+            // Permalink - use to edit and share this gradient:
+            // http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.65+0,0+100;Neutral+Density
+            @include filter-gradient(#000000, #000000, vertical); // IE6-9
+            @include background-image(linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%));
+            color: rgba(218, 173, 147, 0.8);
+        }
+    }
+
+    label, .input[type='submit']{
+        color: $form-label-color;
+        font-family: Arial, sans-serif;
+    }
+    .submit-wrapper{
+        margin-top: 2em;
+        padding: 2em 0;
+        border-top: 1px dashed $form-border-color;
+        background: url("../img/form-bottom-bg.png");
+        label{
+            font-size: 85%;
+        }
+    }
+}
