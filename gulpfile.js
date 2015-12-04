@@ -7,15 +7,13 @@ var gulp = require('gulp');
 // and attach them to the `plugins` object
 var plugins = require('gulp-load-plugins')();
 
-// Temporary solution until gulp 4
-// https://github.com/gulpjs/gulp/issues/355
 var runSequence = require('run-sequence');
 
 var pkg = require('./package.json');
 var dirs = pkg['scaffold-config'].directories;
 
 var uglify = require('gulp-uglifyjs');
-// var rename = require('gulp-rename');
+var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 
 
@@ -80,7 +78,7 @@ gulp.task('copy', [
     'copy:license',
     'copy:images',
     // 'copy:main.css',
-    // 'copy:minify-css',
+    'copy:minify-css',
     'copy:misc'
 ]);
 
@@ -110,38 +108,46 @@ gulp.task('copy:license', function () {
         .pipe(gulp.dest(dirs.dist));
 });
 /*
-gulp.task('copy:main.css', function () {
+ gulp.task('copy:main.css', function () {
 
-    var banner = '/!*! HTML5 Boilerplate v' + pkg.version +
-        ' | ' + pkg.license.type + ' License' +
-        ' | ' + pkg.homepage + ' *!/\n\n';
+ var banner = '/!*! HTML5 Boilerplate v' + pkg.version +
+ ' | ' + pkg.license.type + ' License' +
+ ' | ' + pkg.homepage + ' *!/\n\n';
 
-    return gulp.src(dirs.src + '/css/' + mainStylesheet + '.css')
-        .pipe(plugins.header(banner))
-        .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
-            cascade: false
-        }))
-    .pipe(gulp.dest(dirs.dist + '/css/'));
+ return gulp.src(dirs.src + '/css/' + mainStylesheet + '.css')
+ .pipe(plugins.header(banner))
+ .pipe(plugins.autoprefixer({
+ browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
+ cascade: false
+ }))
+ .pipe(gulp.dest(dirs.dist + '/css/'));
 
-});*/
+ });*/
 /*
 
+ gulp.task('copy:minify-css', function () {
+ var banner = '/!*! HTML5 Boilerplate v' + pkg.version +
+ ' | ' + pkg.license.type + ' License' +
+ ' | ' + pkg.homepage + ' *!/\n\n';
+ return gulp.src(dirs.src + '/css/' + mainStylesheet + '.css')
+ .pipe(plugins.header(banner))
+ .pipe(plugins.autoprefixer({
+ browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
+ cascade: false
+ }))
+ .pipe(cssmin())
+ .pipe(rename({ suffix: '.min' }))
+ .pipe(gulp.dest('dist' + '/css/'));
+ });
+ */
 gulp.task('copy:minify-css', function () {
-    var banner = '/!*! HTML5 Boilerplate v' + pkg.version +
-        ' | ' + pkg.license.type + ' License' +
-        ' | ' + pkg.homepage + ' *!/\n\n';
+    var banner = '/*!*! Taras Bilous: ' + 'tbilous@gmail.com' +
+        ' | ' + pkg.homepage + ' *!*/\n\n';
     return gulp.src(dirs.src + '/css/' + mainStylesheet + '.css')
         .pipe(plugins.header(banner))
-        .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
-            cascade: false
-        }))
-        .pipe(cssmin())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist' + '/css/'));
 });
-*/
 
 gulp.task('copy:uglify', function () {
     return gulp.src([
@@ -172,8 +178,8 @@ gulp.task('copy:misc', function () {
         dirs.src + '/**/*',
         // Exclude the following files
         // (other tasks will handle the copying of these files)
-        // '!' + dirs.src + '/css/' + mainStylesheet + '.css',
-        //  '!' + dirs.src + '/css/**/*',
+        '!' + dirs.src + '/css/' + mainStylesheet + '.css',
+        // '!' + dirs.src + '/css/**/*',
         '!' + dirs.src + '/assets/**/*',
         '!' + dirs.src + '/img/**/*',
         '!' + dirs.src + '/js/' + mainJs + '.js',
