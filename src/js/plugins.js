@@ -104,28 +104,91 @@ $(document).ready(function () {
         $('.modal-dialog').css('margin-top', marr / 2);
     });
 
-    // MAIL FORM
-    $("form").submit(function () {
-        var formID = $(this).attr("id");
-        $.ajax({
-            type: "POST",
-            url: "mail.php", // mail script
-            data: $(this).serialize()
-        }).done(function () {
-            $(this).find("input").val("");
-            $('#' + formID).trigger("reset");
-            $('#callbackModal').modal('show');
-        });
-        var parent = $(this).parents('.modal');
-        var modalID = parent.attr("id");
+    // validator & sand mail
 
-        if ($('#' + modalID).hasClass('in')) {
-            $('#' + modalID).modal('hide');
-            return false;
-        } else {
-            return false;
-        }
+    $('input[type=submit]').click(function () {
+        var formID = ('#' + this.form.id);
+        //console.log(formID);
+        var validator;
+        validator = $(formID).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 16
+                },
+                comment: {
+                    required: true
+                },
+
+                phone: {
+                    //number: true,
+                    required: true,
+                    minlength: 21,
+                    maxlength: 21
+                }
+            },
+            messages: {
+
+                name: {
+                    required: "Это поле обязательно для заполнения",
+                    minlength: "Должно быть минимум 3 символа",
+                    maxlength: "Максимальное число символов - 16"
+                },
+
+                phone: {
+                    required: "Это поле обязательно для заполнения",
+                    minlength: "Номер должен быть минимум 20 символа",
+                    maxlength: "Номер должен быть максимум 22 символов",
+                    //number: "Введите номер телефона"
+                },
+
+                comment: {
+                    required: "Это поле обязательно для заполнения"
+                }
+
+            },
+
+            submitHandler: function (form) {
+                var request;
+                var serializedData;
+                var inputs;
+                var callbackModalID;
+
+                serializedData = $(form).serialize();
+                inputs = $(formID).find('input, select, button, textarea');
+                callbackModalID = '#callbackModal';
+
+                request = $.ajax({
+                    url: "mail.php",
+                    type: "post",
+                    data: serializedData
+                });
+                request.done(function () {
+                    $(formID).trigger("reset");
+                    $('callbackModalID').modal('show');
+                    var parent = $(formID).closest('.modal');
+                    var modalID = ('#' + parent.attr("id"));
+                    if ($(modalID).hasClass('in')) {
+                        $(modalID).modal('hide');
+                        return false;
+                    } else {
+                        return false;
+                    }
+                });
+
+                request.fail(function (jqXHR, textStatus, errorThrown) {
+                    console.error(
+                        "The following error occured: " + textStatus, errorThrown);
+                });
+
+                request.always(function () {
+                    inputs.prop("disabled", true);
+                });
+            }
+        });
     });
+
 
     // Lost count digit flow
     function runDigitFlow() {
