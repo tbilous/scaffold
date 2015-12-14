@@ -105,6 +105,9 @@ $(document).ready(function () {
     });
 
     // validator & sand mail
+    jQuery(function($){
+        $('input[name=phone]').mask("+(380) (99) 999-99-99");
+    });
 
     $('input[type=submit]').click(function () {
         var formID = ('#' + this.form.id);
@@ -122,7 +125,6 @@ $(document).ready(function () {
                 },
 
                 phone: {
-                    //number: true,
                     required: true,
                     minlength: 21,
                     maxlength: 21
