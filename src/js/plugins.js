@@ -105,15 +105,14 @@ $(document).ready(function () {
     });
 
     // validator & sand mail
-    jQuery(function($){
-        $('input[name=phone]').mask("+(380) (99) 999-99-99");
+
+    jQuery(function ($) {
+        $('input[type=tel]').mask("+(380) (99) 999-99-99");
     });
 
     $('input[type=submit]').click(function () {
         var formID = ('#' + this.form.id);
-        //console.log(formID);
-        var validator;
-        validator = $(formID).validate({
+        $(formID).validate({
             rules: {
                 name: {
                     required: true,
@@ -125,9 +124,10 @@ $(document).ready(function () {
                 },
 
                 phone: {
+                    //number: true,
                     required: true,
-                    minlength: 21,
-                    maxlength: 21
+                    //minlength: 21,
+                    //maxlength: 21
                 }
             },
             messages: {
@@ -139,9 +139,10 @@ $(document).ready(function () {
                 },
 
                 phone: {
+                    //matches: "/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/",
                     required: "Это поле обязательно для заполнения",
-                    minlength: "Номер должен быть минимум 20 символа",
-                    maxlength: "Номер должен быть максимум 22 символов",
+                    //minlength: "Номер должен быть минимум 20 символа",
+                    //maxlength: "Номер должен быть максимум 22 символов"
                     //number: "Введите номер телефона"
                 },
 
@@ -168,7 +169,7 @@ $(document).ready(function () {
                 });
                 request.done(function () {
                     $(formID).trigger("reset");
-                    $('callbackModalID').modal('show');
+                    $(callbackModalID).modal('show');
                     var parent = $(formID).closest('.modal');
                     var modalID = ('#' + parent.attr("id"));
                     if ($(modalID).hasClass('in')) {
@@ -190,6 +191,7 @@ $(document).ready(function () {
             }
         });
     });
+
 
 
     // Lost count digit flow
