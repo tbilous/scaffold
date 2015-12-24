@@ -26,6 +26,7 @@
     // http://www.jshint.com/docs/options/#environments
 
     "browser": true,
+    "devel": true,
     "jquery": true,
     "node": true
 

@@ -1,0 +1,12 @@
+npm-debug.log
+archive
+node_modules
+src/js/vendor
+bower_components
+.idea
+src/css/*.*
+dist
+temp
+src/fonts/FontAwesome.*
+src/fonts/fontawesome*.*
+src/fonts/ionicons.*

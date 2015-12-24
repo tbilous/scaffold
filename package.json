@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "apache-server-configs": "2.14.0",
     "archiver": "^0.14.3",
     "del": "^1.1.1",
     "glob": "^5.0.5",
@@ -13,6 +12,8 @@
     "gulp-load-plugins": "^0.10.0",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.3",
+    "gulp-shell": "^0.5.1",
+    "gulp-uglifyjs": "^0.6.2",
     "jquery": "1.11.3",
     "jshint-stylish": "^1.0.1",
     "mocha": "^2.2.4",
@@ -26,23 +27,21 @@
       "archive": "archive",
       "dist": "dist",
       "src": "src",
-      "test": "test"	
+      "test": "test"
     }
   },
   "homepage": "http://deveasy.esy.es/projects/",
   "license": {
-    "type": "MIT",
+    "type": "",
     "url": ""
   },
   "name": "layout",
   "private": true,
   "scripts": {
+    "bower": "bower install",
     "build": "gulp build",
     "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
   "version": "1.0.0",
-  "dependencies": {
-    "grunt": "^0.4.5",
-    "gulp-uglifyjs": "^0.6.2"
-  }
+  "dependencies": {}
 }

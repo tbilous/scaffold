@@ -1,8 +1,12 @@
+//disable hoster manifest
+.cbalink{
+    display: none;
+}
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800&subset=latin,cyrillic');
-/* Webfont: Lato-Bold */
+
 //noinspection ALL
 
-@font-face {
+/*@font-face {
     font-family: 'Ionicons';
     src: url("../fonts/ionicons.eot?v=2.0.0");
     src: url("../fonts/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"),
@@ -11,21 +15,22 @@
     url("../fonts/ionicons.svg?v=2.0.0#Ionicons") format("svg");
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
-@font-face {
+/*@font-face {
     font-family: 'LatoWebBold';
-    src: url('../fonts/Lato-Bold.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('../fonts/Lato-Bold.woff2') format('woff2'), /* Modern Browsers */
-    url('../fonts/Lato-Bold.woff') format('woff'), /* Modern Browsers */
+    src: url('../fonts/Lato-Bold.eot'); !* IE9 Compat Modes *!
+    src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *!
+    url('../fonts/Lato-Bold.woff2') format('woff2'), !* Modern Browsers *!
+    url('../fonts/Lato-Bold.woff') format('woff'), !* Modern Browsers *!
     url('../fonts/Lato-Bold.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
     text-rendering: optimizeLegibility;
-}
+}*/
 
 //FONT AWESOME
+/*
 @font-face {
     font-family: 'FontAwesome';
     src: url('../fonts/fontawesome-webfont.eot?v=4.5.0');
@@ -33,6 +38,7 @@
     font-weight: normal;
     font-style: normal;
 }
+*/
 
 
 /* Webfont: Lato-Semibold */
@@ -51,17 +57,17 @@
 //noinspection ALL
 /* Webfont: Lato-Regular */
 //noinspection ALL
-@font-face {
+/*@font-face {
     font-family: 'LatoWeb';
-    src: url('../fonts/Lato-Regular.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('../fonts/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
-    url('../fonts/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+    src: url('../fonts/Lato-Regular.eot'); !* IE9 Compat Modes *!
+    src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *!
+    url('../fonts/Lato-Regular.woff2') format('woff2'), !* Modern Browsers *!
+    url('../fonts/Lato-Regular.woff') format('woff'), !* Modern Browsers *!
     url('../fonts/Lato-Regular.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
     text-rendering: optimizeLegibility;
-}
+}*/
 
 /*
 @font-face {
@@ -215,67 +221,6 @@ a, button, input, textarea {
     }
 }
 
-.i-icons {
-    position: relative;
-    &::before {
-        font-family: 'Ionicons';
-        position: absolute;
-        height: 40px;
-        width: 20px;
-        top: 3px;
-        font-size: 22px;
-        display: block;
- /*       padding-top: 7px;
-        left: 7px;*/
-        color: $brand-primary;
-        left: -24px;
-        padding-top: 4px;
-    }
-    &.airplane::before {
-        content: '\f2c3';
-
-    }
-    &.person::before {
-        content: '\f213';
-
-    }
-    &.telephone::before {
-        content: '\f4b9';
-
-    }
-    &.text::before {
-        content: '\f11d';
-
-    }
-    &.mail::before {
-        content: '\f2eb';
-
-    }
-}
-.i-social{
-    display: inline-block;
-    width: 3em;
-    height: 3em;
-    background-repeat: no-repeat;
-    background-size: cover;
-    &.fb{
-        background-image: url("../img/icons/s-fb-icon.png");
-    }
-    &.tw{
-        background-image: url("../img/icons/s-tw-icon.png");
-    }
-    &.g{
-        background-image: url("../img/icons/s-g-icon.png");
-    }
-}
-
-.line-icon {
-    display: block;
-    height: 10px;
-    background: url("../img/icons/icon-line.png") center no-repeat;
-    margin-bottom: 1em;
-}
-
 .animated {
     opacity: 0;
     &.visible {
@@ -294,8 +239,6 @@ a, button, input, textarea {
 }
 
 .fa-icon {
-    //display: inline-block;
-    //font: normal normal normal 14px/1 'FontAwesome';
     font-size: inherit; // can't have font-size inherit on line above, so need to override
     text-rendering: auto; // optimizelegibility throws things off #1094
     -webkit-font-smoothing: antialiased;
@@ -366,4 +309,18 @@ a, button, input, textarea {
 
 .fa-file-text-o:before {
     content: "\f0f6";
+}
+
+label.error {
+    color: $brand-danger !important;
+    font-weight: 300;
+    font-size: 80%;
+    position: relative;
+    display: inline-block;
+    &::before {
+        content: '*';
+        position: absolute;
+        left: -5px;
+        top: 0;
+    }
 }
